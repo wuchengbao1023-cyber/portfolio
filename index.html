@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chengbao - AI Application Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #fafbfc;
+      --card-bg: #ffffff;
+      --text: #1a1a2e;
+      --text-sub: #555;
+      --border: #e8ecf1;
+      --accent: #4f46e5;
+      --accent-light: #eef2ff;
+      --tag-bg: #f1f5f9;
+      --tag-text: #475569;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: var(--text-sub);
+      font-size: 15px;
+    }
+
+    .header .tags {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .header .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Project Card */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      margin-bottom: 28px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.15s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .project-card:active {
+      transform: translateY(0);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+      background: #f0f2f5;
+    }
+
+    .card-body {
+      padding: 20px 24px 24px;
+    }
+
+    .card-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-body h2 .arrow {
+      font-size: 18px;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      transform: translateX(-4px);
+    }
+
+    .project-card:hover .card-body h2 .arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .card-body .subtitle {
+      color: var(--text-sub);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .card-body .desc {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .card-body .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech-tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container { padding: 40px 16px 60px; }
+      .header h1 { font-size: 24px; }
+      .card-image { height: 160px; }
+      .card-body { padding: 16px 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Chengbao</h1>
+    <p>AI Application Developer · Python / React</p>
+    <div class="tags">
+      <span class="tag">RAG</span>
+      <span class="tag">Multi-Agent</span>
+      <span class="tag">LLM Application</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">Full-Stack</span>
+    </div>
+  </div>
+
+  <!-- Enterprise Brain -->
+  <a class="project-card" href="https://github.com/wuchengbao1023-cyber/Enterprise-Brain" target="_blank" rel="noopener">
+    <img class="card-image" src="https://raw.githubusercontent.com/wuchengbao1023-cyber/Enterprise-Brain/main/docs/screenshot-main.png" alt="Enterprise Brain" onerror="this.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='block'">
+    <div class="card-body">
+      <h2>Enterprise Brain <span class="arrow">→</span></h2>
+      <div class="subtitle">企业级RAG知识库问答系统</div>
+      <div class="desc">
+        上传文档，自动解析切片向量化，支持自然语言提问并精准回答。
+        HyDE + BM25 + 向量检索三层召回，CrossEncoder精排，引用溯源。
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">RAG</span>
+        <span class="tech-tag">HyDE</span>
+        <span class="tech-tag">BM25</span>
+        <span class="tech-tag">CrossEncoder</span>
+        <span class="tech-tag">React</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- InsightFlow -->
+  <a class="project-card" href="https://github.com/wuchengbao1023-cyber/InsightFlow" target="_blank" rel="noopener">
+    <img class="card-image" src="https://raw.githubusercontent.com/wuchengbao1023-cyber/InsightFlow/main/docs/screenshot-main.png" alt="InsightFlow" onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block'">
+    <div class="card-body">
+      <h2>InsightFlow <span class="arrow">→</span></h2>
+      <div class="subtitle">多智能体BI数据分析平台</div>
+      <div class="desc">
+        用自然语言分析数据。六个AI智能体自动分工协作：数据工程师写SQL、预测分析师做趋势、质检官质疑结论、辩论收敛后输出专业报告。
+        DAG任务编排 + 对抗性辩论 + NL2SQL + 流式推理。
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Multi-Agent</span>
+        <span class="tech-tag">DAG</span>
+        <span class="tech-tag">NL2SQL</span>
+        <span class="tech-tag">Debate</span>
+        <span class="tech-tag">DuckDB</span>
+        <span class="tech-tag">React + TS</span>
+        <span class="tech-tag">ECharts</span>
+      </div>
+    </div>
+  </a>
+
+  <div class="footer">
+    <p>Projects are open source on GitHub</p>
+  </div>
+
+</div>
+
+</body>
+</html>
